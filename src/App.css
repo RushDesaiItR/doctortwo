@@ -1,0 +1,194 @@
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fffefe;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+:root {
+  --blue: #ff3300;
+  --white: #ffffff;
+  --green:#00a964;
+  --para:#999999;
+  --text:#00001a;
+}
+.main-container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.sidebar{
+   flex: 1;
+   background-color: var(--blue);
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+/* .sidebar:hover{
+  flex: 1;
+  background-color: var(--blue);
+  box-shadow: 2px 2px 9px gray;
+} */
+.main-home{
+  flex: 6;
+}
+/* .logo{
+  float: right;
+} */
+.logo{
+  text-align: center;
+  color:var(--green);
+  font-weight: bold;
+}
+.logo img{
+  width: 100px;
+  height: 100px;
+}
+.sidebar-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+.sidebar-menu-span{
+    color: white;
+   font-weight: bold;
+   font-size: 21px;
+   padding: 10px 30px;
+   margin: 20px 0;
+   border-radius: 3px;
+   cursor: pointer;
+}
+.sidebar-menu span:hover{
+  color: var(--blue);
+  background: var(--white);
+}
+.active-sidebar{
+  color: var(--blue);
+  background: var(--white);
+  padding: 10px 30px;
+  border-radius: 3px;
+}
+.hi img{
+ width: 40px;
+ height: 40px;
+}
+.main-home{
+  padding: 20px;
+}
+.normal{
+  padding: 10px;
+  border-radius: 3px;
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  width: 100%;
+}
+.helpdesk{
+   /* width: 98%; 
+   height: 100%; 
+   overflow-y: scroll;
+   display:flex;
+   flex: column; */
+   
+   height: 96vh;
+   overflow-x: scroll;
+  
+}
+.helpdesk-banner{
+  /* width: 100%;  */
+  display: flex;
+  padding:10px;
+}
+.helpdesk-banner div{
+   flex:1;
+  
+}
+.helpdesk-banner-list{
+  /* height: 20px; */
+   justify-content: space-between; 
+  display: flex;
+  flex-direction: row;
+}
+.helpdesk-banner2 h3{
+  color:var(--green);
+  font-size: 50px;
+  font-family: 'Lobster', cursive;
+}
+
+.helpdesk-banner2 h2{
+  color:var(--green);
+  font-size: 70px;
+  font-family: 'Lobster', cursive;
+}
+.helpdesk-banner-list span{
+  color:rgb(0, 0, 26);
+  font-weight: 400;
+  font-size: 20px;
+}
+.helpdesk-banner-list h1{
+  font-size: 40px;
+  padding: 7px 15px;
+  border-radius: 40px;
+  background:rgb(0, 204, 255,.5);
+  color: var(--white);
+  /* border:1px solid var(--green) */
+}
+.helpdesk-banner img{
+  width: 400px;
+   height: 400px; 
+}
+.helpdesk-banner2{
+  display: flex;
+  flex-direction: column;
+}
+.Specialities{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Specialities-card{
+  border-radius: 3px;
+  padding:20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  align-items: center;
+  margin-top: 20px;
+}
+.Specialities-card img{
+  width:100px;
+  height:100px;
+  border-radius: 360px;
+  padding: 0 10px 0 0;
+}
+.Specialities-card button{
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: var(--white);
+  margin-top: 10px;
+}
+.Specialities-card h5{
+   font-size: 26px;
+   margin:0;
+   color:var(--text);
+   font-weight: 600;
+}
+.Specialities-card h6{
+  font-size: 16px;
+  margin: 0 0 0px 0;
+  color:var(--para);
+  font-weight: 600;
+
+}
