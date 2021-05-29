@@ -1,50 +1,66 @@
 import React from 'react'
 import chat from './components/chat'
-import sidebar from './components/sidebar'
 import Helpdesk from './pages/Helpdesk'
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import Covid from './pages/Covid';
-
+import Sidebar from './components/Sidebar';
+import Connect from "./pages/Connect"
+import Loader from "./components/Loader"
+import GenralCheck from "./pages/GenralCheck"
+import Form from"./pages/Form"
+import Medicine from"./pages/Medicine"
+import Feedback from"./components/Feedback"
 export default function Home() {
     const [menuId, setMenuId]=React.useState(0)
+    const [loader, setLoader]=React.useState(true)
+    const [childData, setChildData]=React.useState([])
+    const [loggedIn, setLoggedIn]=React.useState(false)
+    const [feedback, setFeedback]=React.useState(false)
+    const [link, setLink]=React.useState()
+    const sendDataForm=(data)=>{
+      setChildData(data)
+      setMenuId(4)
+    }
+   React.useEffect(()=>{
+    const token =  localStorage.getItem("link");
+    
+    const time=localStorage.getItem("time");
+    const date=localStorage.getItem("date");
+    if (token) {
+      setLink(token)
+      setLoggedIn(true)
+    }
+    else {
+      setLoggedIn(false)
+    }
+   })
+    setTimeout(()=>{
+      setLoader(false)
+    }, 2000)
     return (
         <>
-         <div className="main-container">
-            <div className="sidebar">
-               <span class="logo">
-                
-                 <h1>
-                  <LocalHospitalIcon/>
-                  <br></br>
-                  Net Doc
-                 </h1>
-                 {/* <img src="https://image.freepik.com/free-vector/hospital-logo-template_1057-388.jpg"/> */}
-               </span>
-              {/* <span class="logo">
-                 <img src="https://image.freepik.com/free-vector/hospital-logo-template_1057-388.jpg"/>
-               </span>
-                <div class="hi">Hi <img src="https://i.pinimg.com/originals/72/f5/d8/72f5d83a6fcb756a1d0a5d296eeca0d5.gif"/></div> */}
-               <div className="sidebar-menu">
-                    <span  className={ menuId == 0 ? "active-sidebar" : 'sidebar-menu-span' } onClick={()=>setMenuId(0)} ><i class="fa fa-superpowers" aria-hidden="true"></i> Help Desk</span>
-                    <span className={ menuId == 1 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>setMenuId(1)} ><i class="fa fa-medkit" aria-hidden="true"></i> Medicine</span>
-                   <span className={ menuId == 2 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>setMenuId(2)} ><i class="fa fa-thermometer-full" aria-hidden="true"></i> Covid Meter</span>
-                    <span className={ menuId == 3 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>setMenuId(3)} ><i class="fa fa-address-card-o" aria-hidden="true"></i> General Check</span>
-               </div>
-            </div>
+         {
+           loader ? <Loader/>
+           :
+
+           <div className="main-container">
+            <Sidebar menuId={menuId} setMenuId={setMenuId}/>
+          
             <div className="main-home">
                {
                  menuId == 0 &&
                  (
                    <>
-                   <Helpdesk/>
+                   <Helpdesk sendDataForm={sendDataForm}  menuId={menuId} setMenuId={setMenuId}/>
                    </>
                  )
                }
                 {
                  menuId == 1 &&
                  (
+                   
                    <>
-                    <h1>Medicine</h1>
+                    <Medicine/>
                    </>
                  )
                }
@@ -60,12 +76,62 @@ export default function Home() {
                  menuId == 3 &&
                  (
                    <>
-                    <h1>General Check</h1>
+                    <GenralCheck/>
+                   </>
+                 )
+               }
+                {
+                 menuId == 4 &&
+                 (
+                   <>
+                    <Form childData={childData}/>
+                   </>
+                 )
+               }
+               {
+                 menuId == 5 &&
+                 (
+                   <>
+                    <Connect setMenuId={setMenuId}/>
                    </>
                  )
                }
             </div>
+             <div className={"oppintment-card"}>
+                 <div className="oppintment-card-inner">
+                 <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    <div>
+                       <h3>Your Oppointment</h3>
+                       {/* <form action="http://localhost:7000/">
+                         <input type="text" value={link}/>
+                          <button type="submit">Start</button>
+                       </form> */}
+                      <a class="oppintment-card-button" href={`https://webinar-webrtc-siom-network.herokuapp.com/?name=${608406d05e8f853fb47631c7}`}>Connect</a>
+                    </div>
+                 </div>
+              </div>
+              
+             
+            
+            <>
+               <div class="feedback-btn" onClick={()=>{setFeedback(!feedback)}}>
+                  <i class="fa fa-comments" aria-hidden="true"></i>
+              </div>  
+               {
+                 feedback && (
+                 
+                  <div class="feedback-form">
+                      
+                       <Feedback/>
+                 </div> 
+                 )
+               }
+             </>  
+        
          </div>
+       
+
+         }
         </>
     )
 }

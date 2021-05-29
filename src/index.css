@@ -1,13 +1,21 @@
 body {
+  padding:0px;
   margin: 0;
+  line-height: normal;
+  min-height: 100% !important;
+  height: 100%;
+  overflow: hidden;
   font-family: 'Exo 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   background-color: rgba(230, 250, 255,.4); 
+   background-color: #eaebef; 
   /* background:white; */
   box-sizing: border-box;
 }
 
+html {
+height: 100%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

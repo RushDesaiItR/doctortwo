@@ -1,26 +1,24 @@
 import React from 'react'
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-export default function Helpdesk() {
+import Doctors from "../components/Doctors"
+
+export default function Helpdesk({setMenuId, sendDataForm}) {
+   const [tab, setTab]=React.useState(0)
     return (
         <div className="helpdesk">
       
            <div className="helpdesk-banner2 normal">
-           <h3>Sehat Apki 
+        
+           <div className="helpdesk-banner">
+             <div>
+             <h3>Sehat Apki 
                    <br/>
                    <span style={{fontSize: "70px"}}>
                      Sath Hamara
                    </span>
                </h3>
-               <a href="https://webinar-webrtc-siom-network.herokuapp.com?id=1234">Go</a>
-               <form action="https://webinar-webrtc-siom-network.herokuapp.com">
-                <input type="hidden" name="id" value="344"/>
-                <button  type="submit">
-                Connect
-               </button>
-              </form>
-           <div className="helpdesk-banner">
-             <div>
-              
+               
+             
 
                <div className="helpdesk-banner-list">
                     <h1><i class="fa fa-user-md" aria-hidden="true"></i></h1> 
@@ -43,101 +41,41 @@ export default function Helpdesk() {
                        <span>Ambulance Service</span>
                    </div>
                </div>
+              
              </div>
              
-               <img src="https://www.freevector.com/uploads/vector/preview/30913/doctor_man_Mesa_de_trabajo_1.jpg"/>
+             <img style={{width:"600px",height:"600px"}} 
+               src="http://www.pngplay.com/wp-content/uploads/7/Doctor-Nurse-PNG-Clipart-Background.png"/>
             
            </div>
            </div>
 
          <br/><br/>
 
-           <div className="helpdesk-banner2 normal">
-               <h3>Popular Specialities</h3>
-              <div className="Specialities">
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
+           {/* <div className="helpdesk-banner3 normal">
+               <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+                 <span style={{fontSize:"30px", fontWeight:"bolder"}}>Doctors</span> 
+                 <div className="doctor-search-bar" >
+                   <input placeholder="Search Doctor" type="text"/>
+                   <i class="fa fa-search" aria-hidden="true"></i>
                  </div>
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
-                 </div>
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
-                 </div>
-              </div>
-
-              <div className="Specialities">
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
-                 </div>
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
-                 </div>
-                 <div className="Specialities-card">
-                    <div style={{display: "flex"}}>
-                    <img src="https://prodconsumer-docs.s3.amazonaws.com/AccountImageFolder1606827280716Dr_Manish_web1821401519.jpeg"/>
-                     <div>
-                     <h5>Manish Patil</h5>
-                     <h6>MBBS, DNB</h6>
-                     <h6>7 years of experience</h6>
-                     <h6>Speaks: English, বাংলা, हिन्दी, ಕನ್ನಡ, ਪੰਜਾਬੀ</h6>
-                     <h6>Sector 7 Banglore</h6>
-                     </div>
-                    </div>
-                    <button>CONSULT NOW <i class="fa fa-inr" style={{marginLeft:"7px"}} aria-hidden="true"></i> 400</button>
-                 </div>
-              </div>
-           </div>
+               </div>
+               <div className="catagory-tabs">
+                   <button className={tab == 0 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(0)}>All</button>
+                   <button className={tab == 1 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(1)}>Pediatricians</button>
+                   <button className={tab == 2 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(2)}>General Surgeon</button>
+                   <button className={tab == 3 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(3)}>Cardiologist:</button>
+                   <button className={tab == 4 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(4)}>Dentist</button>
+                   <button className={tab == 5 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(5)}>Gynecologist</button>
+                   <button className={tab == 6 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(6)}>Cardiologist:</button>
+                   <button className={tab == 7 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(7)}>Dentist</button>
+                   <button className={tab == 8 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(8)}>Gynecologist</button>
+                   <button className={tab == 9 ?"catagory-tab-active":"catagory-tab "} onClick={()=>setTab(9)}>Gynecologist</button>
+               </div>
+             
+               <Doctors sendDataForm={sendDataForm} setMenuId={setMenuId}/>
+           </div> */}
+            <Doctors sendDataForm={sendDataForm} setMenuId={setMenuId}/>
         </div>
     )
 }
