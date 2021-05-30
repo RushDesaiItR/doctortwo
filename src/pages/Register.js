@@ -4,6 +4,7 @@ import Loader from '../components/Loader';
 import Alert from '../components/Alert';
 import BtnLoadingGif from "../assets/Eclipse-1s-38px.gif"
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 export default class Register extends Component {
     constructor(props) {
         super(props)
@@ -29,7 +30,7 @@ export default class Register extends Component {
             picUrl:null,
             resData:[]
         }
-      
+    
     }
     async componentWillMount() {
         const Data = await this.fetchStateDataFun()
@@ -72,7 +73,7 @@ export default class Register extends Component {
             confPassword,
             image
         } = this.state
-
+   
 
         if (image ==null || firstName == null || lastName == null || age == null || address == null || city == null || state == null || email == null || contact == null || password == null || confPassword == null) {
             this.setState({ description: "Some Thing Went Wrong", message: "All Field Required", type: "error" })
@@ -108,7 +109,7 @@ export default class Register extends Component {
                
                 await axios({
                     method: 'post',
-                    url: 'http://localhost:3800/patients',
+                    url: 'http://localhost:3800/doctor',
                     data:{
                         firstName:firstName,
                          lastName:lastName,
@@ -122,13 +123,7 @@ export default class Register extends Component {
                          pic:this.state.picUrl
                     }
                   })
-                  .then(data=>{
-                      console.log(data)
-                      this.setState({resData:data})
-                  })
-                  .then(error=>{
 
-                  })
                   if(this.state.resData.error){
                     this.setState({ description: "Some Thing Went Wrong", message: "All Field Required", type: "error" })
                     this.setState({ alert: true })
@@ -139,7 +134,7 @@ export default class Register extends Component {
                     this.setState({ description: "Registred", message: "Registred Successfull", type: "success" })
                     this.setState({ alert: true })
                     localStorage.setItem("projectToken","tokenprj")
-                   
+                    this.props.history.push('/home');
                   }
            
         }
@@ -226,8 +221,9 @@ export default class Register extends Component {
                       </button>
                                             :
                                             <button onClick={() => this.onSubmit()} class="btn-register">Register</button>
+                                            
                                     }
-
+                                    <Link to="/">Log In</Link>
                                 </div>
                             </div>
 

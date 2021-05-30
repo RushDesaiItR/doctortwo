@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Redirect } from 'react-router-dom';
 export default class Sidebar extends Component {
     // const { menuId,setMenuId} =this.props
     constructor(props){
@@ -10,6 +10,7 @@ export default class Sidebar extends Component {
        
       
     }
+    
     componentWillMount(){
       let token = localStorage.getItem("projectToken")
       if(token){
@@ -18,8 +19,18 @@ export default class Sidebar extends Component {
     }
    logOut(){
       localStorage.removeItem("projectToken")
-    }
+      localStorage.removeItem("DoctorInfo")         
+      this.setState({logout:false})
+  }
+ 
     render() {
+     
+      if (this.state.logout==false) {
+        return <Redirect to='/' />
+      }
+   else {
+   
+   
         return (
             <div className="sidebar">
             <span class="logo">
@@ -40,7 +51,12 @@ export default class Sidebar extends Component {
                    <i class="fa fa-superpowers font-sidebar-menu" aria-hidden="true"></i> 
                    <span className="text-sidebar-menu">Help Desk</span>
              </span>
-                 <span className={ this.props.menuId == 1 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>this.props.setMenuId(1)} >
+            
+             <span className={ this.props.menuId == 1 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>this.props.setMenuId(1)} >
+             <i class="fa fa-users" aria-hidden="true"></i>
+                   <span className="text-sidebar-menu">Patients</span>
+                   </span>
+                 {/* <span className={ this.props.menuId == 1 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>this.props.setMenuId(1)} >
                    <i class="fa fa-medkit font-sidebar-menu" aria-hidden="true"></i> 
                    <span className="text-sidebar-menu">Medicine</span>
                    </span>
@@ -51,7 +67,7 @@ export default class Sidebar extends Component {
                  <span className={ this.props.menuId == 3 ? "active-sidebar" :  'sidebar-menu-span' } onClick={()=>this.props.setMenuId(3)} >
                    <i class="fa fa-address-card-o font-sidebar-menu" aria-hidden="true"></i> 
                    <span className="text-sidebar-menu">Genral Check</span>
-                   </span>
+                   </span> */}
             </div>
             <div className="dev-logo">
               Soft Techno
@@ -64,5 +80,6 @@ export default class Sidebar extends Component {
             }
          </div>
         )
+      }
     }
 }

@@ -15,7 +15,7 @@ const Feedback = () => {
            <input type="radio" name="review" checked="checked" />
             <span class="checkmark"></span>
         </label>
-        <label class="checkbox-container">Excllent
+        <label class="checkbox-container">Excellent
              <input type="radio" name="review"/>
             <span class="checkmark"></span>
         </label>

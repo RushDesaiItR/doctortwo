@@ -45,7 +45,7 @@ export default function Helpdesk({setMenuId, sendDataForm}) {
              </div>
              
              <img style={{width:"600px",height:"600px"}} 
-               src="http://www.pngplay.com/wp-content/uploads/7/Doctor-Nurse-PNG-Clipart-Background.png"/>
+               src="https://www.seekpng.com/png/full/322-3221067_health2-female-doctor-images-hd.png"/>
             
            </div>
            </div>
@@ -75,7 +75,7 @@ export default function Helpdesk({setMenuId, sendDataForm}) {
              
                <Doctors sendDataForm={sendDataForm} setMenuId={setMenuId}/>
            </div> */}
-            <Doctors sendDataForm={sendDataForm} setMenuId={setMenuId}/>
+            
         </div>
     )
 }

@@ -10,7 +10,8 @@ import GenralCheck from "./pages/GenralCheck"
 import Form from"./pages/Form"
 import Medicine from"./pages/Medicine"
 import Feedback from"./components/Feedback"
-export default function Home() {
+import Patients from "./pages/Patients"
+export default function Home(props) {
     const [menuId, setMenuId]=React.useState(0)
     const [loader, setLoader]=React.useState(true)
     const [childData, setChildData]=React.useState([])
@@ -21,8 +22,9 @@ export default function Home() {
       setChildData(data)
       setMenuId(4)
     }
+  
    React.useEffect(()=>{
-    const token =  localStorage.getItem("link");
+    const token =  localStorage.getItem("DoctorInfo");
     
     const time=localStorage.getItem("time");
     const date=localStorage.getItem("date");
@@ -37,6 +39,7 @@ export default function Home() {
     setTimeout(()=>{
       setLoader(false)
     }, 2000)
+   
     return (
         <>
          {
@@ -44,7 +47,7 @@ export default function Home() {
            :
 
            <div className="main-container">
-            <Sidebar menuId={menuId} setMenuId={setMenuId}/>
+            <Sidebar checkOpt={props.checkOpt} menuId={menuId} setMenuId={setMenuId}/>
           
             <div className="main-home">
                {
@@ -59,9 +62,9 @@ export default function Home() {
                  menuId == 1 &&
                  (
                    
-                   <>
-                    <Medicine/>
-                   </>
+                  
+                    <Patients/>
+                   
                  )
                }
                 {
@@ -97,7 +100,9 @@ export default function Home() {
                  )
                }
             </div>
-             <div className={"oppintment-card"}>
+            {
+            
+              loggedIn && <div className={"oppintment-card"}>
                  <div className="oppintment-card-inner">
                  <i class="fa fa-video-camera" aria-hidden="true"></i>
                     <div>
@@ -106,13 +111,13 @@ export default function Home() {
                          <input type="text" value={link}/>
                           <button type="submit">Start</button>
                        </form> */}
-                      <a class="oppintment-card-button" href={`https://webinar-webrtc-siom-network.herokuapp.com/?name=${608406d05e8f853fb47631c7}`}>Connect</a>
+                      <a class="oppintment-card-button" href={`https://webinar-webrtc-siom-network.herokuapp.com/?name=${link}`}>Connect</a>
                     </div>
                  </div>
               </div>
               
              
-            
+            }
             <>
                <div class="feedback-btn" onClick={()=>{setFeedback(!feedback)}}>
                   <i class="fa fa-comments" aria-hidden="true"></i>

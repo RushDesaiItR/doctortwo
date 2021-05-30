@@ -14,7 +14,7 @@ export default class Alert extends Component {
             <p style={this.props.type==='error'? {color:"red"} :null }>{this.props.description}</p>
             <div className="alert-box-card-row">
             { this.props.type !='error'&& 
-                <button className="alert-box-card-sure">Sure</button>
+                <button  className="alert-box-card-sure">Sure</button>
             }
                 <button onClick={()=>this.props.setAlertFun()} className="alert-box-card-cancle">Cancle</button>
             </div>
