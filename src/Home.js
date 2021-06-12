@@ -3,6 +3,7 @@ import chat from './components/chat'
 import Helpdesk from './pages/Helpdesk'
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import Covid from './pages/Covid';
+import Sidebar from './components/Sidebar';
 import Connect from "./pages/Connect"
 import Loader from "./components/Loader"
 import GenralCheck from "./pages/GenralCheck"
@@ -10,7 +11,6 @@ import Form from"./pages/Form"
 import Medicine from"./pages/Medicine"
 import Feedback from"./components/Feedback"
 import Patients from "./pages/Patients"
-import Sidebar from './components/Sidebar';
 export default function Home(props) {
     const [menuId, setMenuId]=React.useState(0)
     const [loader, setLoader]=React.useState(true)
