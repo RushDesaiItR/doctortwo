@@ -36,7 +36,7 @@ export default class Register extends Component {
             {
                    const res = await axios({
                     method: 'post',
-                    url: 'http://localhost:3800/doctors-login',
+                    url: 'https://shrouded-scrubland-67974.herokuapp.com/doctors-login',
                     data:{
                        email,
                        password
@@ -44,13 +44,17 @@ export default class Register extends Component {
                   })
 
                   if (res.data.message =="success") {
-                      
+                    console.log(res.data)  
                     this.setState({ description: "Log In", message: "Log In Successfull", type: "success" })
                     this.setState({ alert: true })
                     localStorage.setItem("DoctorInfo",res.data.data._id)
-                    console.log(localStorage.getItem("DoctorInfo"))
-                    localStorage.setItem("projectToken","tokenprj")
-                    this.props.history.push('/home');
+                    localStorage.setItem("projectTokenDoc","tokenprj")
+                    localStorage.setItem("DocFirstName",res.data.data.firstName)
+                    localStorage.setItem("DocLastName",res.data.data.lastName)
+                    localStorage.setItem("projectTokenDoc","tokenprj")
+                    setTimeout(()=>{
+                        this.props.history.push('/home');
+                    }, 2000)
                 }
                   else{
                     this.setState({ description: "Some Thing Went Wrong", message: "Password Or Email Invalid", type: "error" })
@@ -83,13 +87,16 @@ export default class Register extends Component {
                                <img src="https://image.freepik.com/free-vector/medical-video-call-consultation-illustration_88138-415.jpg"/>
                               <div>
                               <center><h1>Doctors Log In</h1></center>
+                              
                                 <input type="text"
                                 placeholder="Email"
                                  onChange={(e)=>this.setState({email:e.target.value})}/>
+                               
                                 <input type="password"
                                  placeholder="Passowrd"
                                  onChange={(e)=>this.setState({password:e.target.value})}
-                                />
+                                /> 
+                                
                                 <button class="btn-register" 
                                 onClick={()=>this.onSubmit()} >LOG IN</button>
                                 <Link to="/register">Resister</Link>

@@ -355,6 +355,7 @@
    margin:40px 0;
    /* box-shadow: #e7f0ff 0px 4px 5px, #e7f0ff 0px -12px 30px, #e7f0ff 0px 4px 6px, #e7f0ff 0px 12px 13px,#e7f0ff 0px -3px 5px; */
 }
+
 .catagory-tab{
   color: var(--blue);
   padding: 16px 30px;
@@ -901,7 +902,7 @@
    outline: none;
    border:none;
    background:none;
-   border-radius:3px;
+   border-radius:10px;
    border:2px solid var(--blue);
    width: 80%;
    padding:5px 10px;

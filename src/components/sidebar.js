@@ -12,13 +12,13 @@ export default class Sidebar extends Component {
     }
     
     componentWillMount(){
-      let token = localStorage.getItem("projectToken")
+      let token = localStorage.getItem("projectTokenDoc")
       if(token){
         this.setState({logout:true})
       }
     }
    logOut(){
-      localStorage.removeItem("projectToken")
+      localStorage.removeItem("projectTokenDoc")
       localStorage.removeItem("DoctorInfo")         
       this.setState({logout:false})
   }

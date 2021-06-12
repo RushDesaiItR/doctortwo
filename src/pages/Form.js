@@ -56,7 +56,7 @@ export default function FullWidthGrid({ childData }) {
     const headers = {
       "Content-Type": "application/json"
     }
-    return fetch(`http://localhost:3800/payment`, {
+    return fetch(`https://shrouded-scrubland-67974.herokuapp.com/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body)
@@ -85,7 +85,7 @@ export default function FullWidthGrid({ childData }) {
     } else {
       await axios({
         method: 'post',
-        url: 'http://localhost:3800/doctorsoppintment',
+        url: 'https://shrouded-scrubland-67974.herokuapp.com/doctorsoppintment',
         data: {
           firstName: childData.firstName,
           lastName: childData.lastName,

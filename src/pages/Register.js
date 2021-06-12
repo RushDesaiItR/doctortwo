@@ -109,7 +109,7 @@ export default class Register extends Component {
                
                 await axios({
                     method: 'post',
-                    url: 'http://localhost:3800/doctor',
+                    url: 'https://shrouded-scrubland-67974.herokuapp.com/doctor',
                     data:{
                         firstName:firstName,
                          lastName:lastName,
@@ -133,7 +133,7 @@ export default class Register extends Component {
 
                     this.setState({ description: "Registred", message: "Registred Successfull", type: "success" })
                     this.setState({ alert: true })
-                    localStorage.setItem("projectToken","tokenprj")
+                    localStorage.setItem("projectTokenDoc","tokenprj")
                     this.props.history.push('/home');
                   }
            

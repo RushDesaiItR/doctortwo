@@ -6,7 +6,7 @@ import axios from "axios"
 //         fetchData()
 //     },[])
 //     const fetchData= async ()=>{
-//     axios.get("http://localhost:3800/doctors")
+//     axios.get("https://shrouded-scrubland-67974.herokuapp.com/doctors")
 //   .then(function (response) {
 //     setDoctors(response)
 //     console.log(doctors);
@@ -100,7 +100,7 @@ export default class Doctors extends Component {
     }
 
     async componentWillMount() {
-        const res = await axios.get("http://localhost:3800/doctors")
+        const res = await axios.get("https://shrouded-scrubland-67974.herokuapp.com/doctors")
         this.setState({ doctors: res.data })
         setTimeout(() => {
             this.setState({ loader: false })

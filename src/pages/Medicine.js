@@ -38,7 +38,7 @@ export default class Medicine extends Component {
 
     }
     async componentWillMount() {
-        const res = await axios.get("http://localhost:3800/medicine")
+        const res = await axios.get("https://shrouded-scrubland-67974.herokuapp.com/medicine")
         this.setState({ medicine: res.data })
         setTimeout(() => {
             this.setState({ loader: false })
@@ -53,7 +53,7 @@ export default class Medicine extends Component {
         const headers = {
             "Content-Type": "application/json"
         }
-        return fetch(`http://localhost:3800/payment`, {
+        return fetch(`https://shrouded-scrubland-67974.herokuapp.com/payment`, {
             method: "POST",
             headers,
             body: JSON.stringify(body)

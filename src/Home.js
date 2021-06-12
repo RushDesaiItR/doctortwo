@@ -111,7 +111,7 @@ export default function Home(props) {
                          <input type="text" value={link}/>
                           <button type="submit">Start</button>
                        </form> */}
-                      <a class="oppintment-card-button" href={`https://webinar-webrtc-siom-network.herokuapp.com/?name=${link}`}>Connect</a>
+                      /
                     </div>
                  </div>
               </div>

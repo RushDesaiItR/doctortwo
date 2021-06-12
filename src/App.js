@@ -31,7 +31,7 @@ export default class App extends Component {
      this.checkOpt()
   }
   checkOpt() {
-   const token = localStorage.getItem("projectToken");
+   const token = localStorage.getItem("projectTokenDoc");
    if (token) {
         return <Redirect to='/' />
    }
