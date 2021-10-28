@@ -51,7 +51,7 @@ export default class Register extends Component {
                     localStorage.setItem("projectTokenDoc","tokenprj")
                     localStorage.setItem("DocFirstName",res.data.data.firstName)
                     localStorage.setItem("DocLastName",res.data.data.lastName)
-                    localStorage.setItem("projectTokenDoc","tokenprj")
+                
                     setTimeout(()=>{
                         this.props.history.push('/home');
                     }, 2000)

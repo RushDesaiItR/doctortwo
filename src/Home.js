@@ -10,6 +10,7 @@ import GenralCheck from "./pages/GenralCheck"
 import Form from"./pages/Form"
 import Medicine from"./pages/Medicine"
 import Feedback from"./components/Feedback"
+import Email from"./components/Email"
 import Patients from "./pages/Patients"
 export default function Home(props) {
     const [menuId, setMenuId]=React.useState(0)
@@ -46,9 +47,9 @@ export default function Home(props) {
            loader ? <Loader/>
            :
 
-           <div className="main-container">
+           <div className="main-container" style={{position:'relative'}}>
             <Sidebar checkOpt={props.checkOpt} menuId={menuId} setMenuId={setMenuId}/>
-          
+            
             <div className="main-home">
                {
                  menuId == 0 &&
@@ -63,7 +64,7 @@ export default function Home(props) {
                  (
                    
                   
-                    <Patients/>
+                    <Patients setMenuId={setMenuId}/>
                    
                  )
                }
@@ -99,6 +100,14 @@ export default function Home(props) {
                    </>
                  )
                }
+               {
+                 menuId == 7 &&
+                 (
+                   <>
+                    <Email setMenuId={setMenuId}/>
+                   </>
+                 )
+               }
             </div>
             {
             
@@ -106,7 +115,7 @@ export default function Home(props) {
                  <div className="oppintment-card-inner">
                  <i class="fa fa-video-camera" aria-hidden="true"></i>
                     <div>
-                       <h3>Your Oppointment</h3>
+                       <h3>Your Appointment</h3>
                        {/* <form action="http://localhost:7000/">
                          <input type="text" value={link}/>
                           <button type="submit">Start</button>
